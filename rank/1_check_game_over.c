@@ -12,27 +12,31 @@
 
 #include "../so_long_rank.h"
 
-void	display_game_over(t_data *d)
+void	final_display(t_data *d)
 {
-	int	i;
+		int	i;
 
-	if (d->gameover_drawn == 3)
-		return ;
-	i = 0;
-	mlx_clear_window(d->mlx_ptr, d->win_ptr);
-	while (d->long_line[i] && d->long_line[i] != '\n')
-	{
-		axis_x_y(d, i);
-		mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->background, \
-					d->axis_x, d->axis_y);
-		i++;
-	}
-	mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->end_fail, \
-			(d->width - 5) * 25, (d->height - 6) * 25);
-	mlx_string_put(d->mlx_ptr, d->win_ptr, (d->width - 3) * 25, \
-			(d->height + 3) * 25, 0x00FF0000, "Press ESC to exit the game");
-	d->gameover_drawn++;
-	mlx_do_sync(d->mlx_ptr);
+		if (d->gameover_drawn == 3)
+			return ;
+		i = 0;
+		mlx_clear_window(d->mlx_ptr, d->win_ptr);
+		while (d->long_line[i] && d->long_line[i] != '\n')
+		{
+			axis_x_y(d, i);
+			mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->background, \
+						d->axis_x, d->axis_y);
+			i++;
+		}
+		if (d->game_over == 1)
+			mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->end_fail, \
+					(d->width - 5) * 25, (d->height - 6) * 25);
+		else if (d->game_over == 2)
+			mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->end_win, \
+				(d->width - 5) * 25, (d->height - 6) * 25);
+		mlx_string_put(d->mlx_ptr, d->win_ptr, (d->width - 3) * 25, \
+				(d->height + 3) * 25, 0x00FF0000, "Press ESC to exit the game");
+		d->gameover_drawn++;
+		mlx_do_sync(d->mlx_ptr);
 }
 
 void	show_animation(t_data *d, char *long_line)
@@ -59,11 +63,14 @@ void	show_animation(t_data *d, char *long_line)
 
 int	event_loop(t_data *d)
 {
-	if (d->game_over == 1)
-		display_game_over(d);
-	else if (d->game_over == 2)
-		end_game(d);
-		//display_win(d); //need to create function
+	if (d->game_over == 1 || d->game_over == 2)
+		final_display(d);
+	else if (d->game_over == -1)
+	{
+		if (d->level_num < 6)
+			write(1, "----Next level--->>\n\n", 22);
+		load_next_level(d);
+	}
 	else
 	{
 		light_sprint(d);

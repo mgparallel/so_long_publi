@@ -14,14 +14,15 @@
 
 void	init_data(t_data *d)
 {
-	d = ft_memset(d, 0, sizeof(t_data));
-	d->wall = 1;
-	d->flag = 1;
+	ft_memset(d, 0, sizeof(t_data));
+	d->mv_flag = 1;
 	d->start = 1;
 	d->frame_delay = 50;
+	d->width = 18;
+	d->height = 10;
+	d->long_line = NULL;
 	d->mlx_ptr = NULL;
 	d->win_ptr = NULL;
-	d->long_line = NULL;
 }
 
 int	read_map_util(t_data *d, char *line)
@@ -39,8 +40,10 @@ int	read_map_util(t_data *d, char *line)
 int	read_map(t_data *d, const char *map)
 {
 	int		fd;
+	int		i;
 	char	*line;
 
+	i = 0;
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
 		return (0);
@@ -55,6 +58,12 @@ int	read_map(t_data *d, const char *map)
 		}
 		else
 			break ;
+	}
+	while (d->long_line[i] && d->long_line[i] != '\n')
+	{
+		if (d->long_line[i] == 'C')
+			d->all_to_collect++;
+		i++;
 	}
 	close(fd);
 	return (1);

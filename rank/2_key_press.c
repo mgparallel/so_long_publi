@@ -14,15 +14,15 @@
 
 void	move_util(t_data *d, void *ini, void *mv)
 {
-	if (d->flag == 1)
+	if (d->mv_flag == 1)
 	{
 		d->p = ini;
-		d->flag = 0;
+		d->mv_flag = 0;
 	}
 	else
 	{
 		d->p = mv;
-		d->flag = 1;
+		d->mv_flag = 1;
 	}
 }
 
@@ -79,7 +79,12 @@ void	move_up(t_data *d)
 int	key_press(int keysym, t_data *d)
 {
 	if (keysym == XK_Escape)
+	{
+		if (d->game_over == 1)
+			write (1, "You died:( Try again\n", 21);
 		end_game(d);
+		return (1);
+	}
 	else if (keysym == 119 || keysym == 65362)
 		move_up(d);
 	else if (keysym == 97 || keysym == 65361)

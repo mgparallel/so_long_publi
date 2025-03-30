@@ -12,27 +12,18 @@
 
 #include "../so_long_rank.h"
 
-void	frame_free(t_data *d, void **array, int i)
-{
-	perror("Error loading image!");
-	while (i--)
-		mlx_destroy_image(d->mlx_ptr, array[i]);
-	free_img(d);
-	exit(1);
-}
-
-void	error_free(t_data *d)
-{
-	if (!d)
-		return ;
-	if (d->long_line)
-	{
-		free(d->long_line);
-		d->long_line = NULL;
-	}
-	free(d);
-	exit(0);
-}
+// void	error_free(t_data *d)
+// {
+// 	if (!d)
+// 		return ;
+// 	if (d->long_line)
+// 	{
+// 		free(d->long_line);
+// 		d->long_line = NULL;
+// 	}
+// 	free(d);
+// 	exit(0);
+// }
 
 void	free_img(t_data *d)
 {
@@ -52,4 +43,13 @@ void	free_img(t_data *d)
 	}
 	free(d);
 	exit(0);
+}
+
+void	frame_free(t_data *d, void **array, int i)
+{
+	perror("Error loading image!");
+	while (i--)
+		mlx_destroy_image(d->mlx_ptr, array[i]);
+	free_img(d);
+	exit(1);
 }

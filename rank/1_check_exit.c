@@ -29,10 +29,9 @@ void	move_msg(t_data *d)
 int	is_exit(t_data *d, char ch)
 {
 	if (ch == 'C' && d->collected + 1 == d->all_to_collect)
-		d->exit_flag = 1;
+		d->exit_flag = 1; //ready to print the exit
 	if (ch == 'E' && d->collected == d->all_to_collect)
 	{
-		//write (1, "Congrats! You won!\n", 19);
 		d->game_over = -1;
 		return (1);
 	}

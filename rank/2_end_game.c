@@ -43,6 +43,7 @@ int	end_game(t_data *d)
 		cleanup(d->mlx_ptr, (void **)&d->background);
 		cleanup(d->mlx_ptr, (void **)&d->out);
 		cleanup(d->mlx_ptr, (void **)&d->end_fail);
+		cleanup(d->mlx_ptr, (void **)&d->end_win);
 		cleanup(d->mlx_ptr, (void **)&d->p_init);
 		clean_npc(d);
 		while (i < MAX_KEY)
@@ -53,6 +54,8 @@ int	end_game(t_data *d)
 		}
 		d->enemy = NULL;
 		d->light = NULL;
+		free(d->enemy);
+		free(d->light);
 		free(d->x);
 	}
 	free_img(d);

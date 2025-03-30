@@ -64,7 +64,7 @@ int	read_map_util(t_data *d, char *line)
 		return (free(line), 0);
 	if (d->height == 1)
 		d->width = count_width(d->current_line);
-	else if (count_width(d->current_line) != d->width)
+	else if (count_width(d->current_line) != (size_t)d->width)
 		return (map_error(1), free(line), 0);
 	temp = map_concate(d->long_line, line);
 	if (!temp)

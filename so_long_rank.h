@@ -27,6 +27,7 @@
 # define R1		"img/right_mv.xpm"
 # define OUT	"img/exit.xpm"
 # define END	"img/gameover.xpm"
+# define WIN	"img/win.xpm"
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -75,6 +76,8 @@ typedef struct s_data
 	void	*enemy_frame[MAX_KEY];
 	void	*light_frame[MAX_KEY];
 	void	*end_fail;
+	void	*end_win;
+	int		level_num;
 	int		start;
 	int		exit_flag;
 	int		old_e;
@@ -86,20 +89,16 @@ typedef struct s_data
 	int		counter_pattern;
 	int		frame_delay;
 	int		enemy_flag;
-	int		flag;
+	int		mv_flag;
 	int		width;
 	int		height;
 	int		axis_x;
 	int		axis_y;
 	int		npc_x;
 	int		npc_y;
-	int		wall;
-	int		npc;
 	int		all_to_collect;
 	int		collected;
 	int		steps;
-	int		exit;
-	int		back;
 	int		x_count;
 	int		gameover_drawn;
 	char	*long_line;
@@ -136,6 +135,7 @@ int		key_press(int keysym, t_data *d);
 void	move_right(t_data *d);
 void	move_left(t_data *d);
 void	move_util(t_data *d, void *ini, void *mv);
+void	load_next_level(t_data *d);
 int		enemy_sprint(t_data *d);
 int		light_sprint(t_data *d);
 void	enemy_pattern(t_data *d);

@@ -11,9 +11,11 @@
 # **************************************************************************** #
 
 CC = gcc
-CFLASG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 MLX_DIR = minilibx-linux
-MLX_FLAGS = $(MLX_DIR)/libmlx.a -L/usr/lib -L/usr/lib/X11 -lXext -lX11
+MLX_FLAGS = -Lminilibx-linux -lmlx -L/usr/lib -L/usr/lib/X11 -lXext -lX11
+
+
 INCLUDES = -I/usr/include -I/usr/include/X11 -I$(MLX_DIR)
 SANITIZE = -fsanitize=address
 RM = rm -rf
