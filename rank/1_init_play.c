@@ -6,11 +6,11 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:54:09 by menwu             #+#    #+#             */
-/*   Updated: 2025/03/29 15:38:48 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/30 17:22:18 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_rank.h"
+#include "so_long_rank.h"
 
 void	init_play(t_data *d)
 {
