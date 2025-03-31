@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:54:02 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/15 14:48:43 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 18:05:04 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,6 @@ void	show_animation(t_data *d, char *long_line)
 		if (long_line[i] == '0')
 			mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->background, \
 					d->axis_x, d->axis_y);
-		if (long_line[i] == 'X')
-			mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, \
-					d->enemy_frame[d->current_frame_enemy], \
-					d->axis_x, d->axis_y);
 		if (long_line[i] == 'C')
 			mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, \
 					d->light_frame[d->current_frame_fly], d->axis_x, d->axis_y);
@@ -66,7 +62,6 @@ int	event_loop(t_data *d)
 	else
 	{
 		light_sprint(d);
-		enemy_sprint(d);
 		show_animation(d, d->long_line);
 	}
 	return (0);

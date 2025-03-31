@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:54:09 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/15 14:23:26 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 18:02:37 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,6 @@ void	show_map_util(t_data *d, int i, int x_, int y_)
 	else if (d->long_line[i] == 'C')
 		mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, \
 				d->light_frame[d->current_frame_fly], x_, y_);
-	else if (d->long_line[i] == 'X')
-		mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, \
-				d->enemy_frame[d->current_frame_enemy], x_, y_);
 }
 
 void	show_counter(t_data *d)

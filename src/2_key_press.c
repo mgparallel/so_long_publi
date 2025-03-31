@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:54:16 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/15 14:14:41 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 18:04:11 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ void	move_down(t_data *d)
 	i = 0;
 	while (d->long_line[i] != 'P')
 		i++;
-	if (d->long_line[i + d->width] == 'X')
-	{
-		d->game_over = 1;
-		return ;
-	}
 	if (d->long_line[i + d->width] != '1' \
 			&& !is_exit(d, d->long_line[i + d->width]))
 	{
@@ -58,11 +53,6 @@ void	move_up(t_data *d)
 	i = 0;
 	while (d->long_line[i] != 'P')
 		i++;
-	if (d->long_line[i - d->width] == 'X')
-	{
-		d->game_over = 1;
-		return ;
-	}
 	if (d->long_line[i - d->width] != '1' \
 				&& !is_exit(d, d->long_line[i - d->width]))
 	{

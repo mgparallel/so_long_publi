@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:53:56 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/13 17:53:57 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 17:58:33 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	parsing_line(t_data *d, char *line)
 			d->exit++;
 		else if (line[i] == 'P')
 			d->npc++;
-		else if (line[i] != 'X')
+		else
 			return (map_error(2), 0);
 		i++;
 	}

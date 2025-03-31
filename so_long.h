@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:54:32 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/15 17:12:43 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 17:59:51 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,6 @@ typedef struct s_point
 	int		count_e;
 }		t_point;
 
-typedef struct s_enemy
-{
-	int	pos;
-	int	flag;
-	int	count;
-}	t_enemy;
-
 typedef struct s_data
 {
 	void	*mlx_ptr;
@@ -71,21 +64,15 @@ typedef struct s_data
 	void	*background;
 	void	*light;
 	void	*out;
-	void	*enemy;
-	void	*enemy_frame[MAX_KEY];
 	void	*light_frame[MAX_KEY];
 	void	*end_fail;
 	int		start;
 	int		exit_flag;
 	int		old_e;
 	int		game_over;
-	int		current_frame_enemy;
 	int		current_frame_fly;
 	int		counter_fly;
-	int		counter_enemy;
-	int		counter_pattern;
 	int		frame_delay;
-	int		enemy_flag;
 	int		flag;
 	int		width;
 	int		height;
@@ -100,11 +87,9 @@ typedef struct s_data
 	int		steps;
 	int		exit;
 	int		back;
-	int		x_count;
 	int		gameover_drawn;
 	char	*current_line;
 	char	*long_line;
-	t_enemy	*x;
 }				t_data;
 
 // 0 Libft util + Map parsing

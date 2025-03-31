@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:54:06 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/13 18:04:21 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 18:02:28 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,66 +47,4 @@ void	init_collective(t_data *d)
 	d->current_frame_fly = 0;
 	d->light = NULL;
 	define_e(d);
-}
-
-void	enemy_count(t_data *d)
-{
-	int	i;
-
-	i = 0;
-	while (d->long_line[i] && d->long_line[i] != '\n')
-	{
-		if (d->long_line[i] == 'X')
-			d->x_count++;
-		i++;
-	}
-	d->x = ft_calloc(d->x_count, sizeof(t_enemy));
-	if (!d->x)
-		free_img(d);
-}
-
-void	enemy_array(t_data *d)
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	enemy_count(d);
-	while (d->long_line[i] && d->long_line[i] != '\n')
-	{
-		if (d->long_line[i] == 'X')
-		{
-			d->x[count].pos = i;
-			d->x[count].flag = 0;
-			count++;
-		}
-		i++;
-	}
-}
-
-void	init_enemy(t_data *d)
-{
-	int		i;
-	int		p;
-	char	*frame_files[MAX_KEY];
-
-	p = 50;
-	i = 0;
-	frame_files[0] = "img/enemy0.xpm";
-	frame_files[1] = "img/enemy1.xpm";
-	frame_files[2] = "img/enemy2.xpm";
-	frame_files[3] = "img/enemy3.xpm";
-	frame_files[4] = "img/enemy4.xpm";
-	while (i < MAX_KEY)
-	{
-		d->enemy_frame[i] = mlx_xpm_file_to_image(d->mlx_ptr, \
-						frame_files[i], &p, &p);
-		if (!d->enemy_frame[i])
-			frame_free(d, (void **)&frame_files, i);
-		i++;
-	}
-	d->current_frame_enemy = 0;
-	d->enemy = NULL;
-	enemy_array(d);
 }

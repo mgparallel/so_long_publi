@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:53:52 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/13 17:53:53 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 18:00:44 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	fill(char *map, t_point **size, int x, int y)
 	index = y * (*size)->x + x;
 	if (x > (*size)->x || x < 0 || y > (*size)->y || y < 0)
 		return ;
-	if (map[index] == '1' || map[index] == 'X' || map[index] == 'A')
+	if (map[index] == '1' || map[index] == 'A')
 		return ;
 	if (map[index] == 'C')
 		(*size)->count_c++;

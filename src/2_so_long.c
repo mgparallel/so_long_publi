@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:54:21 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/13 17:54:22 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 18:04:20 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	initial(t_data *d, char *map)
 	}
 	init_play(d);
 	init_collective(d);
-	init_enemy(d);
 	return (1);
 }
 

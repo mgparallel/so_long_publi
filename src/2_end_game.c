@@ -6,7 +6,7 @@
 /*   By: menwu <menwu@student.42barcelona.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 15:48:28 by menwu             #+#    #+#             */
-/*   Updated: 2025/02/15 15:48:43 by menwu            ###   ########.fr       */
+/*   Updated: 2025/03/31 18:03:16 by menwu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,10 @@ int	end_game(t_data *d)
 		clean_npc(d);
 		while (i < MAX_KEY)
 		{
-			cleanup(d->mlx_ptr, (void **)&d->enemy_frame[i]);
 			cleanup(d->mlx_ptr, (void **)&d->light_frame[i]);
 			i++;
 		}
-		d->enemy = NULL;
 		d->light = NULL;
-		free(d->x);
 	}
 	free_img(d);
 	return (0);
