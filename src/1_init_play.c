@@ -29,8 +29,8 @@ void	init_play(t_data *d)
 	d->p_r = mlx_xpm_file_to_image(d->mlx_ptr, R, &p, &p);
 	d->p_r_mv = mlx_xpm_file_to_image(d->mlx_ptr, R1, &p, &p);
 	d->out = mlx_xpm_file_to_image(d->mlx_ptr, OUT, &p, &p);
-	d->end_fail = mlx_xpm_file_to_image(d->mlx_ptr, END, &p, &p);
-	if (!d->bush || !d->background || !d->out || !d->end_fail \
+	d->end_win = mlx_xpm_file_to_image(d->mlx_ptr, WIN, &p, &p);
+	if (!d->bush || !d->background || !d->out || !d->end_win \
 		|| !d->p_fr || !d->p_fr_mv || !d->p_bk || !d->p_bk_mv \
 		|| !d->p_l || !d->p_l_mv || !d->p_r || !d->p_r_mv)
 	{

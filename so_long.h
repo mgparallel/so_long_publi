@@ -26,7 +26,7 @@
 # define R		"img/right.xpm"
 # define R1		"img/right_mv.xpm"
 # define OUT	"img/exit.xpm"
-# define END	"img/gameover.xpm"
+# define WIN	"img/win.xpm"
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -65,7 +65,7 @@ typedef struct s_data
 	void	*light;
 	void	*out;
 	void	*light_frame[MAX_KEY];
-	void	*end_fail;
+	void	*end_win;
 	int		start;
 	int		exit_flag;
 	int		old_e;
@@ -87,7 +87,7 @@ typedef struct s_data
 	int		steps;
 	int		exit;
 	int		back;
-	int		gameover_drawn;
+	int		gamewin_drawn;
 	char	*current_line;
 	char	*long_line;
 }				t_data;
@@ -124,14 +124,9 @@ int		key_press(int keysym, t_data *d);
 void	move_right(t_data *d);
 void	move_left(t_data *d);
 void	move_util(t_data *d, void *ini, void *mv);
-int		enemy_sprint(t_data *d);
 int		light_sprint(t_data *d);
-void	enemy_pattern(t_data *d);
-void	init_enemy(t_data *d);
 void	init_collective(t_data *d);
-void	init_score_bar(t_data *d);
 int		update_counter(t_data *d);
-int		update_bar(t_data *d);
 int		event_loop(t_data *d);
 int		end_game(t_data *d);
 void	cleanup(void *mlx_ptr, void **img);

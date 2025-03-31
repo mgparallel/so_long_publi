@@ -12,11 +12,11 @@
 
 #include "../so_long.h"
 
-void	display_game_over(t_data *d)
+void	display_game_win(t_data *d)
 {
 	int	i;
 
-	if (d->gameover_drawn == 3)
+	if (d->gamewin_drawn == 3)
 		return ;
 	i = 0;
 	mlx_clear_window(d->mlx_ptr, d->win_ptr);
@@ -27,11 +27,11 @@ void	display_game_over(t_data *d)
 					d->axis_x, d->axis_y);
 		i++;
 	}
-	mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->end_fail, \
+	mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->end_win, \
 			(d->width - 5) * 25, (d->height - 6) * 25);
 	mlx_string_put(d->mlx_ptr, d->win_ptr, (d->width - 3) * 25, \
 			(d->height + 3) * 25, 0x00FF0000, "Press ESC to exit the game");
-	d->gameover_drawn++;
+	d->gamewin_drawn++;
 	mlx_do_sync(d->mlx_ptr);
 }
 
@@ -56,9 +56,7 @@ void	show_animation(t_data *d, char *long_line)
 int	event_loop(t_data *d)
 {
 	if (d->game_over == 1)
-		display_game_over(d);
-	else if (d->game_over == 2)
-		end_game(d);
+		display_game_win(d);
 	else
 	{
 		light_sprint(d);

@@ -19,11 +19,6 @@ void	move_right(t_data *d)
 	i = 0;
 	while (d->long_line[i] != 'P')
 		i++;
-	if (d->long_line[i + 1] == 'X')
-	{
-		d->game_over = 1;
-		return ;
-	}
 	if (d->long_line[i + 1] != '1' && !is_exit(d, d->long_line[i + 1]))
 	{
 		d->start = 0;
@@ -43,11 +38,6 @@ void	move_left(t_data *d)
 	i = 0;
 	while (d->long_line[i] != 'P')
 		i++;
-	if (d->long_line[i - 1] == 'X')
-	{
-		d->game_over = 1;
-		return ;
-	}
 	if (d->long_line[i - 1] != '1' && !is_exit(d, d->long_line[i - 1]))
 	{
 		d->start = 0;

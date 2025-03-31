@@ -33,7 +33,7 @@ int	is_exit(t_data *d, char ch)
 	if (ch == 'E' && d->collected == d->all_to_collect)
 	{
 		write (1, "Congrats! You won!\n", 19);
-		d->game_over = 2;
+		d->game_over = 1;
 		return (1);
 	}
 	else

@@ -48,8 +48,8 @@ void	reset_win(t_data *d)
 
 void	load_next_level(t_data *d)
 {
-	const char *map_files[] = {"maps/level_1.ber", "maps/level_2.ber", "maps/level_3.ber", "maps/level_4.ber", \
-									"maps/level_5.ber", "maps/level_6.ber", "maps/level_7.ber"};
+	const char *map_files[] = {"maps/maps_ranking/level_1.ber", "maps/maps_ranking/level_2.ber", "maps/maps_ranking/level_3.ber", "maps/maps_ranking/level_4.ber", \
+									"maps/maps_ranking/level_5.ber", "maps/maps_ranking/level_6.ber", "maps/maps_ranking/level_7.ber"};
 	
 	if (d->level_num < 6)
 	{
@@ -69,7 +69,7 @@ void	load_next_level(t_data *d)
 
 void	init_map(t_data *d)
 {		
-		read_map(d,"maps/level_1.ber");
+		read_map(d,"maps/maps_ranking/level_1.ber");
 		init_collective(d);
 		init_enemy(d);
 		show_map(d, d->long_line);
